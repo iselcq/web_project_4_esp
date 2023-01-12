@@ -1,0 +1,31 @@
+@font-face {
+  src: url("../../fonts/Inter-Black.woff"); /*ruta del archivo fuente */
+  font-family: "Inter"; /*nombre para identificar la fuente en los archivos CSS */
+  font-weight: 900; /*tienes que declarar separadamente cada estilo si vas a usar distintos */
+}
+
+@font-face {
+  src: url("../../fonts/Inter-Medium.woff"); /*ruta del archivo fuente */
+  font-family: "Inter"; /*nombre para identificar la fuente en los archivos CSS */
+  font-weight: 500; /*tienes que declarar separadamente cada estilo si vas a usar distintos */
+}
+
+@font-face {
+  src: url("../../fonts/Inter-Regular.woff"); /*ruta del archivo fuente */
+  font-family: "Inter"; /*nombre para identificar la fuente en los archivos CSS */
+  font-weight: 400; /*tienes que declarar separadamente cada estilo si vas a usar distintos */
+}
+
+body {
+  background-color: #000000;
+}
+
+.page {
+  background-color: #000000;
+  color: white;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
