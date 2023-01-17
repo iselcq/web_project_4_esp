@@ -8,3 +8,10 @@
 @import url("../blocks/profile/__profession/profile__profession.css");
 @import url("../blocks/profile/__edit-button/profile__edit-button.css");
 @import url("../blocks/profile/__add-button/profile__add-button.css");
+@import url("../blocks/profile/__user/profile__user.css");
+@import url("../blocks/cards/cards.css");
+@import url("../blocks/cards/__card/cards__card.css");
+@import url("../blocks/cards/__image/cards__image.css");
+@import url("../blocks/cards/__location/cards__location.css");
+@import url("../blocks/cards/__like-button/cards__like-button.css");
+@import url("../blocks/cards/__info/cards__info.css");

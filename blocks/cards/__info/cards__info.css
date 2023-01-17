@@ -1,0 +1,10 @@
+.cards__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 0;
+  height: 79px;
+  color: black;
+  width: 246px;
+  margin-left: 21px;
+}
