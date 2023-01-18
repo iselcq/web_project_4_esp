@@ -218,4 +218,42 @@
       </footer>
     </div>
   </body>
+  <div class="pop-up">
+    <div class="pop-up__card">
+      <button class="pop-up__close">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M28.5709 0.286517L16.0001 12.8573L3.4293 0.286515L0.286608 3.42921L12.8574 16L0.286608 28.5708L3.4293 31.7135L16.0001 19.1427L28.5709 31.7135L31.7136 28.5708L19.1428 16L31.7136 3.42921L28.5709 0.286517Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+      <h3 class="pop-up__title">Edit profile</h3>
+      <form>
+        <fieldset class="pop-up__container">
+          <input
+            type="text"
+            class="pop-up__input"
+            id="user_name"
+            name="user_name"
+            placeholder="Nombre"
+          />
+          <input
+            type="text"
+            class="pop-up__input pop-up__input_profession"
+            id="user_profession"
+            name="user_profession"
+            placeholder="Acerca de mí"
+          />
+        </fieldset>
+        <button type="submit" class="pop-up__submit">Guardar</button>
+      </form>
+    </div>
+  </div>
 </html>

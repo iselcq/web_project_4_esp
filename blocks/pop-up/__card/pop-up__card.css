@@ -1,0 +1,9 @@
+.pop-up__card {
+  background-color: #fff;
+  opacity: 1;
+  width: 430px;
+  /* height: 330px; */
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}

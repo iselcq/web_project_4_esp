@@ -1,0 +1,15 @@
+.pop-up__close {
+  color: white;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: black;
+}
+
+.pop-up__close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
