@@ -7,9 +7,24 @@
   background-color: black;
   border: 2px solid #ffffff;
   border-radius: 2px;
+  background-image: url("../../../images/agregar.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .profile__add-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__add-button {
+    background-image: url("../../../images/agregar_mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 282px;
+    padding: 17px 133px;
+    margin: 36px auto 0;
+    max-height: 50px;
+  }
 }

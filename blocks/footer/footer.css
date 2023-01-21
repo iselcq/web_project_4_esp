@@ -3,3 +3,13 @@
   margin-bottom: 60px;
   margin-left: 200px;
 }
+
+@media screen and (max-width: 767px) {
+  .footer {
+    width: 282px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+}
