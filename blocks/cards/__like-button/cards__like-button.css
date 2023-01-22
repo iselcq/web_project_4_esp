@@ -9,3 +9,8 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+.cards__like-button:active {
+  opacity: 1;
+  cursor: pointer;
+}
