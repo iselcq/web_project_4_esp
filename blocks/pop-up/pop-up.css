@@ -14,3 +14,7 @@
   font-family: "Inter";
   display: none;
 }
+
+.pop-up__opened {
+  display: flex;
+}
