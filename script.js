@@ -1,10 +1,15 @@
 const formElement = document.querySelector(".pop-up");
+const newCardElement = document.querySelector(".new-place");
 const buttonOpen = document.querySelector(".profile__edit-button");
+const buttonAdd = document.querySelector(".profile__add-button");
 const buttonClose = document.querySelector(".pop-up__close");
+const buttonSubmit = document.querySelector(".pop-up__submit");
+const newCardClose = document.querySelector(".new-place__close");
+const newCardSubmit = document.querySelector(".new-place__submit");
 
-const buttonSubmit = document.querySelector("pop-up__submit");
 const inputName = document.querySelector("#user-name");
 const inputJob = document.querySelector("#user-profession");
+
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__profession");
 

@@ -1,0 +1,29 @@
+.new-place__close {
+  color: white;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../../../images/close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.new-place__close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+  .new-place__close {
+    background-image: url("../../../images/close_mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 26px;
+    height: 26px;
+    right: 0;
+  }
+}
