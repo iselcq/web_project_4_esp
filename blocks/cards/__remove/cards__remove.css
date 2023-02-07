@@ -1,0 +1,12 @@
+.cards__remove {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  background-image: url("../../../images/Group\ \(1\).svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
