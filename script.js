@@ -17,60 +17,7 @@ const newCardTitle = document.querySelector(".cards__location");
 const newCardImage = document.querySelector(".cards__image");
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
-
-//funciones para editar perfil
-function openPopUp() {
-  formElement.classList.add("pop-up__opened");
-  const name = profileName.textContent;
-  inputName.value = name;
-  const profession = profileJob.textContent;
-  inputJob.value = profession;
-}
-
-function closePopUp() {
-  formElement.classList.remove("pop-up__opened");
-}
-
-buttonOpen.addEventListener("click", openPopUp);
-buttonClose.addEventListener("click", closePopUp);
-
-function handleProfileSubmitForm(evt) {
-  evt.preventDefault();
-
-  const nameValue = inputName.value;
-  const jobValue = inputJob.value;
-
-  profileName.textContent = nameValue;
-  profileJob.textContent = jobValue;
-
-  closePopUp();
-}
-
-formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
-
-//funciones para agregar nueva tarjeta
-function newCardOpen() {
-  newCard.classList.add("new-place__opened");
-}
-
-function closeCard() {
-  newCard.classList.remove("new-place__opened");
-}
-
-newCardClose.addEventListener("click", closeCard);
-btnNewCard.addEventListener("click", newCardOpen);
-
-function handleNewCardSubmitForm(evt) {
-  evt.preventDefault();
-
-  const titleValue = inputTitle.value;
-  const imageValue = inputImage.value;
-
-  newCardTitle.textContent = titleValue;
-  newCardImage.textContent = imageValue;
-  closeCard();
-}
-
+//6 tarjetas
 const cardData = [
   {
     src: "images/cannonBeach.png",
@@ -104,7 +51,41 @@ const cardData = [
   },
 ];
 
-cardData.forEach((element) => {
+//funciones para editar perfil
+function openPopUp() {
+  formElement.classList.add("pop-up__opened");
+  const name = profileName.textContent;
+  inputName.value = name;
+  const profession = profileJob.textContent;
+  inputJob.value = profession;
+}
+
+function closePopUp() {
+  formElement.classList.remove("pop-up__opened");
+}
+
+buttonOpen.addEventListener("click", openPopUp);
+buttonClose.addEventListener("click", closePopUp);
+
+function handleProfileSubmitForm(evt) {
+  evt.preventDefault();
+
+  const nameValue = inputName.value;
+  const jobValue = inputJob.value;
+
+  profileName.textContent = nameValue;
+  profileJob.textContent = jobValue;
+
+  closePopUp();
+}
+
+formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
+
+//funcion para crear taretas
+cardData.forEach(addCard);
+
+function addCard(element) {
+  // console.log(element);
   const cardTemplate = document.querySelector("#card-template").content;
   const cardTemplateClone = cardTemplate
     .querySelector(".cards__card")
@@ -116,5 +97,27 @@ cardData.forEach((element) => {
   cardTemplateClone.querySelector(".cards__location").textContent =
     element.title;
 
-  cardContainer.append(cardTemplateClone);
-});
+  cardContainer.prepend(cardTemplateClone);
+}
+
+//funciones para agregar nueva tarjeta
+function newCardOpen() {
+  newCard.classList.add("new-place__opened");
+}
+
+function closeCard() {
+  newCard.classList.remove("new-place__opened");
+}
+
+newCardClose.addEventListener("click", closeCard);
+btnNewCard.addEventListener("click", newCardOpen);
+
+function handleNewCardSubmitForm(evt) {
+  evt.preventDefault();
+  const titleValue = inputTitle.value;
+  const imageValue = inputImage.value;
+  const altValue = inputTitle.value;
+  addCard({ src: imageValue, alt: altValue, title: titleValue });
+  closeCard();
+}
+newCardSubmit.addEventListener("click", handleNewCardSubmitForm);
