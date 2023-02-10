@@ -17,6 +17,7 @@ const newCardTitle = document.querySelector(".cards__location");
 const newCardImage = document.querySelector(".cards__image");
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
+const deleteButton = document.querySelector(".cards__remove");
 
 //6 tarjetas
 const cardData = [
@@ -93,6 +94,7 @@ function addCard(element) {
     .cloneNode(true);
   const cardContainer = document.querySelector(".cards");
   const likeButton = cardTemplateClone.querySelector("#like-button");
+  const removeButton = cardTemplateClone.querySelector("#remove-button");
   // console.log(likeButton);
   cardTemplateClone.querySelector(".cards__image").src = element.src;
   cardTemplateClone.querySelector(".cards__image").alt = element.alt;
@@ -101,10 +103,12 @@ function addCard(element) {
 
   likeButton.addEventListener("click", likeSelected);
 
+  removeButton.addEventListener("click", removeCard);
+
   cardContainer.prepend(cardTemplateClone);
 }
 
-//funciones para agregar nueva tarjeta
+//funciones para abrir modal para nueva tarjeta
 function newCardOpen() {
   newCard.classList.add("new-place__opened");
 }
@@ -130,4 +134,9 @@ newCardSubmit.addEventListener("click", handleNewCardSubmitForm);
 function likeSelected(event) {
   // console.log(event);
   event.target.classList.add("cards__like-button_active");
+}
+
+//funcion para remover tarjeta
+function removeCard(event) {
+  event.target.parentElement.remove();
 }
