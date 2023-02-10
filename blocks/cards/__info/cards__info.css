@@ -5,6 +5,6 @@
   flex-grow: 0;
   height: 79px;
   color: black;
-  width: 246px;
-  margin-left: 21px;
+  max-width: 246px;
+  margin-left: 18px;
 }

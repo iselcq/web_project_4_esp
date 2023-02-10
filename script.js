@@ -17,6 +17,7 @@ const newCardTitle = document.querySelector(".cards__location");
 const newCardImage = document.querySelector(".cards__image");
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
+
 //6 tarjetas
 const cardData = [
   {
@@ -81,7 +82,7 @@ function handleProfileSubmitForm(evt) {
 
 formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
 
-//funcion para crear taretas
+//funcion para crear tarjetas y like
 cardData.forEach(addCard);
 
 function addCard(element) {
@@ -91,11 +92,14 @@ function addCard(element) {
     .querySelector(".cards__card")
     .cloneNode(true);
   const cardContainer = document.querySelector(".cards");
-
+  const likeButton = cardTemplateClone.querySelector("#like-button");
+  // console.log(likeButton);
   cardTemplateClone.querySelector(".cards__image").src = element.src;
   cardTemplateClone.querySelector(".cards__image").alt = element.alt;
   cardTemplateClone.querySelector(".cards__location").textContent =
     element.title;
+
+  likeButton.addEventListener("click", likeSelected);
 
   cardContainer.prepend(cardTemplateClone);
 }
@@ -121,3 +125,9 @@ function handleNewCardSubmitForm(evt) {
   closeCard();
 }
 newCardSubmit.addEventListener("click", handleNewCardSubmitForm);
+
+//funcion para el like
+function likeSelected(event) {
+  // console.log(event);
+  event.target.classList.add("cards__like-button_active");
+}
