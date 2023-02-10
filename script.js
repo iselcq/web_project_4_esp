@@ -18,7 +18,9 @@ const newCardImage = document.querySelector(".cards__image");
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
 const deleteButton = document.querySelector(".cards__remove");
-
+//variables para modal de imagen
+const closeImage = document.querySelector("#image-popup__close");
+const imageForm = document.querySelector(".image-popup");
 //6 tarjetas
 const cardData = [
   {
@@ -52,6 +54,12 @@ const cardData = [
     title: "Haleakalā",
   },
 ];
+
+function closeImagePopUp() {
+  imageForm.classList.remove("image-popup__opened");
+}
+
+closeImage.addEventListener("click", closeImagePopUp);
 
 //funciones para editar perfil
 function openPopUp() {
@@ -95,6 +103,8 @@ function addCard(element) {
   const cardContainer = document.querySelector(".cards");
   const likeButton = cardTemplateClone.querySelector("#like-button");
   const removeButton = cardTemplateClone.querySelector("#remove-button");
+  const popupImage = cardTemplateClone.querySelector(".cards__image");
+
   // console.log(likeButton);
   cardTemplateClone.querySelector(".cards__image").src = element.src;
   cardTemplateClone.querySelector(".cards__image").alt = element.alt;
@@ -104,6 +114,8 @@ function addCard(element) {
   likeButton.addEventListener("click", likeSelected);
 
   removeButton.addEventListener("click", removeCard);
+
+  popupImage.addEventListener("click", openImage);
 
   cardContainer.prepend(cardTemplateClone);
 }
@@ -139,4 +151,18 @@ function likeSelected(event) {
 //funcion para remover tarjeta
 function removeCard(event) {
   event.target.parentElement.remove();
+}
+
+//funcion para agrandar imagen
+function openImage(event) {
+  console.log(event);
+  const imagePopUp = document.querySelector(".image-popup");
+  const imageSelected = imagePopUp.querySelector(".image-popup__image");
+  const imageTitle = imagePopUp.querySelector(".image-popup__title");
+
+  imagePopUp.classList.add("image-popup__opened");
+  imageSelected.src = event.target.src;
+  imageSelected.alt = event.target.alt;
+  imageTitle.innerText =
+    event.target.parentElement.children[2].children[0].innerText;
 }

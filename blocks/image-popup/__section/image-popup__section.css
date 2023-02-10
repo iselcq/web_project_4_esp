@@ -1,0 +1,6 @@
+.image-popup__section {
+  display: flex;
+  align-items: right;
+  position: relative;
+  flex-direction: column;
+}
