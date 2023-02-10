@@ -155,7 +155,7 @@ function removeCard(event) {
 
 //funcion para agrandar imagen
 function openImage(event) {
-  console.log(event);
+  // console.log(event);
   const imagePopUp = document.querySelector(".image-popup");
   const imageSelected = imagePopUp.querySelector(".image-popup__image");
   const imageTitle = imagePopUp.querySelector(".image-popup__title");
