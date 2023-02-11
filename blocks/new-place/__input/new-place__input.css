@@ -1,0 +1,22 @@
+.new-place__input {
+  width: 358px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  padding-bottom: 10px;
+}
+
+.new-place__input::placeholder {
+  color: #c4c4c4;
+}
+
+@media screen and (max-width: 767px) {
+  .new-place__input {
+    width: 238px;
+    padding-bottom: 9px;
+  }
+}

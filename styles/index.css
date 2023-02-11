@@ -35,6 +35,11 @@
 @import url("../blocks/new-place/new-place.css");
 @import url("../blocks/new-place/__close/new-place__close.css");
 @import url("../blocks/new-place/__submit/new-place__submit.css");
+@import url("../blocks/new-place/__card/new-place__card.css");
+@import url("../blocks/new-place/__container/new-place__container.css");
+@import url("../blocks/new-place/__input/-link/new-place__input-link.css");
+@import url("../blocks/new-place/__input/new-place__input.css");
+@import url("../blocks/new-place/__title/new-place__title.css");
 
 @import url("../blocks/image-popup/image-popup.css");
 @import url("../blocks/image-popup/__section/image-popup__section.css");
