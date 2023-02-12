@@ -95,7 +95,6 @@ formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
 cardData.forEach(addCard);
 
 function addCard(element) {
-  // console.log(element);
   const cardTemplate = document.querySelector("#card-template").content;
   const cardTemplateClone = cardTemplate
     .querySelector(".cards__card")
@@ -105,7 +104,6 @@ function addCard(element) {
   const removeButton = cardTemplateClone.querySelector("#remove-button");
   const popupImage = cardTemplateClone.querySelector(".cards__image");
 
-  // console.log(likeButton);
   cardTemplateClone.querySelector(".cards__image").src = element.src;
   cardTemplateClone.querySelector(".cards__image").alt = element.alt;
   cardTemplateClone.querySelector(".cards__location").textContent =
