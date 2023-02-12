@@ -142,7 +142,6 @@ newCardSubmit.addEventListener("click", handleNewCardSubmitForm);
 
 //funcion para el like
 function likeSelected(event) {
-  // console.log(event);
   event.target.classList.add("cards__like-button_active");
 }
 
