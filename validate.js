@@ -68,4 +68,14 @@ const popupConfig = {
   errorClass: "pop-up__error_active",
 };
 
+const newCardConfig = {
+  formSelector: "#new-place__form",
+  inputSelector: ".new-place__input",
+  submitButtonSelector: ".new-place__submit",
+  inactiveButtonClass: "new-place__submit_disabled",
+  inputErrorClass: "new-place__input_error",
+  errorClass: "new-place__error_active",
+};
+
 enableValidation(popupConfig);
+enableValidation(newCardConfig);

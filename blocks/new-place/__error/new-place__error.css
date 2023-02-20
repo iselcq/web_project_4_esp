@@ -5,8 +5,11 @@
   line-height: 15px;
   font-style: Inter;
   display: none;
+  margin-left: 35px;
+  margin-top: 8px;
+  max-width: 358px;
 }
 
-.new-place__error {
+.new-place__error_active {
   display: block;
 }

@@ -118,7 +118,7 @@ function addCard(element) {
   cardContainer.prepend(cardTemplateClone);
 }
 
-//funciones para abrir modal para nueva tarjeta
+//funciones para abrir y cerrar modal para nueva tarjeta
 function newCardOpen() {
   newCard.classList.add("new-place__opened");
 }
