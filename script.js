@@ -138,7 +138,7 @@ function handleNewCardSubmitForm(evt) {
   addCard({ src: imageValue, alt: altValue, title: titleValue });
   closeCard();
 }
-newCardSubmit.addEventListener("click", handleNewCardSubmitForm);
+newCard.addEventListener("submit", handleNewCardSubmitForm);
 
 //funcion para el like
 function likeSelected(event) {
