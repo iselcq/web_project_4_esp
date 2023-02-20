@@ -10,6 +10,14 @@
   padding-bottom: 10px;
 }
 
+.new-place__input:last-of-type {
+  margin-top: 30px;
+}
+
+.new-place__input:invalid {
+  border-color: #ff0000;
+}
+
 .new-place__input::placeholder {
   color: #c4c4c4;
 }

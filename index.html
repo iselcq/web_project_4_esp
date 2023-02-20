@@ -63,6 +63,9 @@
               id="user-name"
               name="name"
               placeholder="Nombre"
+              minlength="2"
+              maxlength="40"
+              required
             />
             <input
               type="text"
@@ -70,9 +73,14 @@
               id="user-profession"
               name="profession"
               placeholder="Acerca de mí"
+              minlength="2"
+              maxlength="200"
+              required
             />
           </fieldset>
-          <button type="submit" class="pop-up__submit">Guardar</button>
+          <button type="submit" class="pop-up__submit pop-up__submit_disabled">
+            Guardar
+          </button>
         </form>
       </div>
     </div>
@@ -88,16 +96,26 @@
               id="new-title"
               name="title"
               placeholder="Título"
+              minlength="2"
+              maxlength="30"
+              required
             />
+            <span class=""></span>
             <input
-              type="text"
-              class="new-place__input new-place__input_link"
+              type="url"
+              class="new-place__input"
               id="new-url"
               name="url"
               placeholder="Enlace a la imagen"
+              required
             />
           </fieldset>
-          <button type="submit" class="new-place__submit">Crear</button>
+          <button
+            type="submit"
+            class="new-place__submit new-place__submit_disabled"
+          >
+            Crear
+          </button>
         </form>
       </div>
     </div>
@@ -109,5 +127,6 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>
