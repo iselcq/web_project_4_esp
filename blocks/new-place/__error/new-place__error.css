@@ -1,0 +1,12 @@
+.new-place__error {
+  color: #ff0000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  font-style: Inter;
+  display: none;
+}
+
+.new-place__error {
+  display: block;
+}

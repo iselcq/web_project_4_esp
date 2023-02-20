@@ -55,7 +55,7 @@
       <div class="pop-up__card">
         <button class="pop-up__close"></button>
         <h3 class="pop-up__title">Editar perfil</h3>
-        <form>
+        <form id="pop-up__form">
           <fieldset class="pop-up__container">
             <input
               type="text"
@@ -67,9 +67,10 @@
               maxlength="40"
               required
             />
+            <span id="user-name-error" class="pop-up__error"></span>
             <input
               type="text"
-              class="pop-up__input pop-up__input_profession"
+              class="pop-up__input"
               id="user-profession"
               name="profession"
               placeholder="Acerca de mí"
@@ -77,6 +78,7 @@
               maxlength="200"
               required
             />
+            <span id="user-profession-error" class="pop-up__error"></span>
           </fieldset>
           <button type="submit" class="pop-up__submit pop-up__submit_disabled">
             Guardar
@@ -88,7 +90,7 @@
       <div class="new-place__card">
         <button class="new-place__close"></button>
         <h3 class="new-place__title">Nuevo Lugar</h3>
-        <form>
+        <form id="new-place__form">
           <fieldset class="new-place__container">
             <input
               type="text"
@@ -100,7 +102,7 @@
               maxlength="30"
               required
             />
-            <span class=""></span>
+            <span id="new-title-error"></span>
             <input
               type="url"
               class="new-place__input"
@@ -109,6 +111,7 @@
               placeholder="Enlace a la imagen"
               required
             />
+            <span id="new-url-error"></span>
           </fieldset>
           <button
             type="submit"
