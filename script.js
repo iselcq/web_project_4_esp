@@ -21,6 +21,10 @@ const deleteButton = document.querySelector(".cards__remove");
 //variables para modal de imagen
 const closeImage = document.querySelector("#image-popup__close");
 const imageForm = document.querySelector(".image-popup");
+//variables para cerrar con esc o click fuera del modal
+const popupElement = document.querySelector(".pop-up__card");
+const cardElement = document.querySelector(".new-place__card");
+
 //6 tarjetas
 const cardData = [
   {
@@ -162,3 +166,30 @@ function openImage(event) {
   imageTitle.innerText =
     event.target.parentElement.children[2].children[0].innerText;
 }
+
+//cerrar modales con tecla "esc"
+document.addEventListener("keydown", function (evt, formElement, newCard) {
+  if (evt.key === "Escape") {
+    closePopUp(formElement);
+    closeCard(newCard);
+  }
+});
+
+// //cerrar modales con un click fuera del area
+formElement.addEventListener("click", function (popupElement) {
+  closePopUp(popupElement);
+});
+
+popupElement.addEventListener("click", (evt) => {
+  evt.stopPropagation();
+});
+
+//cerrar modal con un click fuera del area
+
+newCard.addEventListener("click", function (newCard) {
+  closeCard(newCard);
+});
+
+cardElement.addEventListener("click", (evt) => {
+  evt.stopPropagation();
+});
