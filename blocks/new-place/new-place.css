@@ -10,7 +10,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  font-family: "Inter";
   /* display: none; */
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
   visibility: hidden;
