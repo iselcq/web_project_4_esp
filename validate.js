@@ -51,10 +51,8 @@ const setEventListeners = (formElement, configObject) => {
         );
         const invalidInput = hasInvalidInput(inputList);
         if (invalidInput) {
-          console.log("invalido");
           submitBtn.classList.add(configObject.inactiveButtonClass);
         } else {
-          console.log("valido");
           submitBtn.classList.remove(configObject.inactiveButtonClass);
         }
       });
