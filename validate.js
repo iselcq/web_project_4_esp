@@ -44,6 +44,21 @@ const setEventListeners = (formElement, configObject) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, configObject);
     });
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", function () {
+        const submitBtn = formElement.querySelector(
+          configObject.submitButtonSelector
+        );
+        const invalidInput = hasInvalidInput(inputList);
+        if (invalidInput) {
+          console.log("invalido");
+          submitBtn.classList.add(configObject.inactiveButtonClass);
+        } else {
+          console.log("valido");
+          submitBtn.classList.remove(configObject.inactiveButtonClass);
+        }
+      });
+    });
   });
 };
 
