@@ -38,12 +38,12 @@ const cardData = [
     title: "White Sands",
   },
   {
-    src: "images/kilauea.jpg",
+    src: "images/kilauea.png",
     alt: "Imagen de la erupción en el volcán Kilauea",
     title: "Volcán Kilauea",
   },
   {
-    src: "images/bodieIsland.jpg",
+    src: "images/bodieIsland.png",
     alt: "Imagen del Faro de Bodie Island encendido",
     title: "Bodie Island Lighthouse",
   },
