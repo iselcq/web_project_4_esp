@@ -144,9 +144,15 @@ function handleNewCardSubmitForm(evt) {
 }
 newCard.addEventListener("submit", handleNewCardSubmitForm);
 
-//funcion para el like
+//funcion para poner y quitar like
 function likeSelected(event) {
-  event.target.classList.add("cards__like-button_active");
+  if (
+    event.target.className === "cards__like-button cards__like-button_active"
+  ) {
+    event.target.classList.remove("cards__like-button_active");
+  } else {
+    event.target.classList.add("cards__like-button_active");
+  }
 }
 
 //funcion para remover tarjeta
