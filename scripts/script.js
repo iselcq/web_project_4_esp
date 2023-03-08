@@ -158,6 +158,7 @@ function likeSelected(event) {
 //funcion para remover tarjeta
 function removeCard(event) {
   event.target.parentElement.remove();
+  console.log(event);
 }
 
 //funcion para agrandar imagen
@@ -198,4 +199,13 @@ newCard.addEventListener("click", function (newCard) {
 
 cardElement.addEventListener("click", (evt) => {
   evt.stopPropagation();
+});
+
+import Card from "./Card.js";
+
+const cardContainer = document.querySelector(".cards");
+
+cardData.forEach((item) => {
+  const currentCard = new Card(item, "#card-template");
+  cardContainer.prepend(currentCard.generateCard());
 });
