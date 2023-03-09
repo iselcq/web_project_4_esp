@@ -16,12 +16,14 @@ class Card {
     this.likeButton = this.cardTemplateClone.querySelector("#like-button");
     this.removeButton = this.cardTemplateClone.querySelector("#remove-button");
     this.popupImage = this.cardTemplateClone.querySelector(".cards__image");
+    this.closeImage = document.querySelector("#image-popup__close");
   }
 
   _detectEvt() {
     this.removeButton.addEventListener("click", this.handleRemove);
     this.likeButton.addEventListener("click", this.handleLike);
     this.popupImage.addEventListener("click", this.handleOpenImage);
+    this.closeImage.addEventListener("click", this.handleCloseImage);
   }
 
   handleLike(event) {
@@ -46,6 +48,11 @@ class Card {
     this.imageSelected.alt = event.target.alt;
     this.imageTitle.innerText =
       event.target.parentElement.children[2].children[0].innerText;
+  }
+
+  handleCloseImage(event) {
+    this.imageForm = document.querySelector(".image-popup");
+    this.imageForm.classList.remove("image-popup__opened");
   }
 
   generateCard() {

@@ -13,14 +13,11 @@ const btnNewCard = document.querySelector("#add-button");
 const newCardClose = document.querySelector(".new-place__close");
 const newCardSubmit = document.querySelector(".new-place__submit");
 const newCard = document.querySelector(".new-place");
-const newCardTitle = document.querySelector(".cards__location");
-const newCardImage = document.querySelector(".cards__image");
+
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
-const deleteButton = document.querySelector(".cards__remove");
 //variables para modal de imagen
-const closeImage = document.querySelector("#image-popup__close");
-const imageForm = document.querySelector(".image-popup");
+
 //variables para cerrar con esc o click fuera del modal
 const popupElement = document.querySelector(".pop-up__card");
 const cardElement = document.querySelector(".new-place__card");
@@ -58,12 +55,6 @@ const cardData = [
     title: "Haleakalā",
   },
 ];
-
-function closeImagePopUp() {
-  imageForm.classList.remove("image-popup__opened");
-}
-
-closeImage.addEventListener("click", closeImagePopUp);
 
 //funciones para editar perfil
 function openPopUp() {
