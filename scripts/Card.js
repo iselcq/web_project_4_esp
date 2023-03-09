@@ -16,11 +16,12 @@ class Card {
     this.likeButton = this.cardTemplateClone.querySelector("#like-button");
     this.removeButton = this.cardTemplateClone.querySelector("#remove-button");
     this.popupImage = this.cardTemplateClone.querySelector(".cards__image");
-    this.imagePopUp = document.querySelector(".image-popup");
-    this.imageSelected = imagePopUp.querySelector(".image-popup__image");
-    this.imageTitle = imagePopUp.querySelector(".image-popup__title");
+  }
 
-    imagePopUp.classList.add("image-popup__opened");
+  _detectEvt() {
+    this.removeButton.addEventListener("click", this.handleRemove);
+    this.likeButton.addEventListener("click", this.handleLike);
+    this.popupImage.addEventListener("click", this.handleOpenImage);
   }
 
   handleLike(event) {
@@ -35,17 +36,17 @@ class Card {
   handleRemove(event) {
     event.target.parentElement.remove();
   }
-  handleOpenImage(event) {
-    imageSelected.src = event.target.src;
-    imageSelected.alt = event.target.alt;
-    imageTitle.innerText =
-      event.target.parentElement.children[2].children[0].innerText;
-  }
 
-  _detectEvt() {
-    this.removeButton.addEventListener("click", this.handleRemove);
-    this.likeButton.addEventListener("click", this.handleLike);
-    this.popupImage.addEventListener("click", this.handleOpenImage);
+  handleOpenImage(event) {
+    this.imagePopUp = document.querySelector(".image-popup");
+    this.imageSelected = this.imagePopUp.querySelector(".image-popup__image");
+    this.imageTitle = this.imagePopUp.querySelector(".image-popup__title");
+    this.imagePopUp.classList.add("image-popup__opened");
+    this.imageSelected.src = event.target.src;
+    this.imageSelected.alt = event.target.alt;
+    this.imageTitle.innerText =
+      event.target.parentElement.children[2].children[0].innerText;
+    console.log(event);
   }
 
   generateCard() {
