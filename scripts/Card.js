@@ -16,16 +16,36 @@ class Card {
     this.likeButton = this.cardTemplateClone.querySelector("#like-button");
     this.removeButton = this.cardTemplateClone.querySelector("#remove-button");
     this.popupImage = this.cardTemplateClone.querySelector(".cards__image");
+    this.imagePopUp = document.querySelector(".image-popup");
+    this.imageSelected = imagePopUp.querySelector(".image-popup__image");
+    this.imageTitle = imagePopUp.querySelector(".image-popup__title");
+
+    imagePopUp.classList.add("image-popup__opened");
   }
 
-  handleLike(event) {}
+  handleLike(event) {
+    if (
+      event.target.className === "cards__like-button cards__like-button_active"
+    ) {
+      event.target.classList.remove("cards__like-button_active");
+    } else {
+      event.target.classList.add("cards__like-button_active");
+    }
+  }
   handleRemove(event) {
     event.target.parentElement.remove();
   }
-  handleOpenImage(event) {}
+  handleOpenImage(event) {
+    imageSelected.src = event.target.src;
+    imageSelected.alt = event.target.alt;
+    imageTitle.innerText =
+      event.target.parentElement.children[2].children[0].innerText;
+  }
 
   _detectEvt() {
     this.removeButton.addEventListener("click", this.handleRemove);
+    this.likeButton.addEventListener("click", this.handleLike);
+    this.popupImage.addEventListener("click", this.handleOpenImage);
   }
 
   generateCard() {
