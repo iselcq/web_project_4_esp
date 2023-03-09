@@ -46,7 +46,6 @@ class Card {
     this.imageSelected.alt = event.target.alt;
     this.imageTitle.innerText =
       event.target.parentElement.children[2].children[0].innerText;
-    console.log(event);
   }
 
   generateCard() {

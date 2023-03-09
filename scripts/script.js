@@ -95,33 +95,6 @@ function handleProfileSubmitForm(evt) {
 
 formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
 
-//funcion para crear tarjetas y like
-cardData.forEach(addCard);
-
-function addCard(element) {
-  const cardTemplate = document.querySelector("#card-template").content;
-  const cardTemplateClone = cardTemplate
-    .querySelector(".cards__card")
-    .cloneNode(true);
-  const cardContainer = document.querySelector(".cards");
-  const likeButton = cardTemplateClone.querySelector("#like-button");
-  const removeButton = cardTemplateClone.querySelector("#remove-button");
-  const popupImage = cardTemplateClone.querySelector(".cards__image");
-
-  cardTemplateClone.querySelector(".cards__image").src = element.src;
-  cardTemplateClone.querySelector(".cards__image").alt = element.alt;
-  cardTemplateClone.querySelector(".cards__location").textContent =
-    element.title;
-
-  likeButton.addEventListener("click", likeSelected);
-
-  removeButton.addEventListener("click", removeCard);
-
-  popupImage.addEventListener("click", openImage);
-
-  cardContainer.prepend(cardTemplateClone);
-}
-
 //funciones para abrir y cerrar modal para nueva tarjeta
 function newCardOpen() {
   newCard.classList.add("new-place__opened");
@@ -143,36 +116,6 @@ function handleNewCardSubmitForm(evt) {
   closeCard();
 }
 newCard.addEventListener("submit", handleNewCardSubmitForm);
-
-//funcion para poner y quitar like
-function likeSelected(event) {
-  if (
-    event.target.className === "cards__like-button cards__like-button_active"
-  ) {
-    event.target.classList.remove("cards__like-button_active");
-  } else {
-    event.target.classList.add("cards__like-button_active");
-  }
-}
-
-//funcion para remover tarjeta
-function removeCard(event) {
-  event.target.parentElement.remove();
-  console.log(event);
-}
-
-//funcion para agrandar imagen
-function openImage(event) {
-  const imagePopUp = document.querySelector(".image-popup");
-  const imageSelected = imagePopUp.querySelector(".image-popup__image");
-  const imageTitle = imagePopUp.querySelector(".image-popup__title");
-
-  imagePopUp.classList.add("image-popup__opened");
-  imageSelected.src = event.target.src;
-  imageSelected.alt = event.target.alt;
-  imageTitle.innerText =
-    event.target.parentElement.children[2].children[0].innerText;
-}
 
 //cerrar modales con tecla "esc"
 document.addEventListener("keydown", function (evt, formElement, newCard) {
