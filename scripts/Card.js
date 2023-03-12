@@ -39,6 +39,16 @@ class Card {
     event.target.parentElement.remove();
   }
 
+  handleNewCardSubmitForm(event) {
+    event.preventDefault();
+    const inputTitle = document.querySelector("#new-title");
+    const inputImage = document.querySelector("#new-url");
+
+    this.titleValue = inputTitle.value;
+    this.imageValue = inputImage.value;
+    this.altValue = inputTitle.value;
+  }
+
   handleOpenImage(event) {
     this.imagePopUp = document.querySelector(".image-popup");
     this.imageSelected = this.imagePopUp.querySelector(".image-popup__image");
