@@ -90,5 +90,5 @@ const newCardConfig = {
   errorClass: "new-place__error_active",
 };
 
-enableValidation(popupConfig);
-enableValidation(newCardConfig);
+// enableValidation(popupConfig);
+//enableValidation(newCardConfig);

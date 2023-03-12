@@ -16,7 +16,6 @@ const newCard = document.querySelector(".new-place");
 
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
-//variables para modal de imagen
 
 //variables para cerrar con esc o click fuera del modal
 const popupElement = document.querySelector(".pop-up__card");
@@ -135,6 +134,7 @@ cardElement.addEventListener("click", (evt) => {
   evt.stopPropagation();
 });
 
+//clase Card
 import Card from "./Card.js";
 
 const cardContainer = document.querySelector(".cards");
@@ -143,3 +143,35 @@ cardData.forEach((item) => {
   const currentCard = new Card(item, "#card-template");
   cardContainer.prepend(currentCard.generateCard());
 });
+
+//clase FormValidator Editar Perfil
+import FormValidator from "./FormValidator.js";
+
+const popupConfig = {
+  formSelector: "#pop-up__form",
+  inputSelector: ".pop-up__input",
+  submitButtonSelector: ".pop-up__submit",
+  inactiveButtonClass: "pop-up__submit_disabled",
+  inputErrorClass: "pop-up__input_error",
+  errorClass: "pop-up__error_active",
+};
+const popupForm = document.querySelector(popupConfig.formSelector);
+
+const popUpFormValidation = new FormValidator(popupConfig, popupForm);
+
+popUpFormValidation.enableValidation();
+
+//clase Formalidator Agregar Foto
+const newCardConfig = {
+  formSelector: "#new-place__form",
+  inputSelector: ".new-place__input",
+  submitButtonSelector: ".new-place__submit",
+  inactiveButtonClass: "new-place__submit_disabled",
+  inputErrorClass: "new-place__input_error",
+  errorClass: "new-place__error_active",
+};
+const newCardForm = document.querySelector(newCardConfig.formSelector);
+
+const newCardValidation = new FormValidator(newCardConfig, newCardForm);
+
+newCardValidation.enableValidation();
