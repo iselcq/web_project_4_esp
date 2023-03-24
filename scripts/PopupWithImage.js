@@ -1,1 +1,1 @@
-class PopupWithImage extends Card {}
+class PopupWithImage extends Popup {}

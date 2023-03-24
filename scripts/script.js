@@ -77,18 +77,17 @@ function handleNewCardSubmitForm(evt) {
 
 newCard.addEventListener("submit", handleNewCardSubmitForm);
 
-//clase Card
 // cardData.forEach((item) => {
 //   const currentCard = new Card(item, "#card-template");
 //   const currentItemHTML = currentCard.generateCard();
 //   cardContainer.prepend(currentItemHTML);
 // });
-
+//clase Card
 function cardRenderer(item) {
   const currentCard = new Card(item, "#card-template");
   return currentCard.generateCard();
 }
-
+//clase Section
 const cardSection = new Section(
   { items: cardData, renderFunction: cardRenderer },
   ".cards"
@@ -110,7 +109,7 @@ const popUpFormValidation = new FormValidator(popupConfig, popupForm);
 
 popUpFormValidation.enableValidation();
 
-//clase Formalidator Agregar Foto
+//clase FormValidator Agregar Foto
 const newCardConfig = {
   formSelector: "#new-place__form",
   inputSelector: ".new-place__input",
