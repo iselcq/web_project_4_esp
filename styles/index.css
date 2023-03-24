@@ -48,7 +48,7 @@
 @import url("../blocks/new-place/__error/new-place__error.css");
 
 @import url("../blocks/image-popup/image-popup.css");
-@import url("../blocks/image-popup/__section/image-popup__section.css");
+@import url("../blocks/image-popup/__card/image-popup__card.css");
 @import url("../blocks/image-popup/__image/image-popup__image.css");
 @import url("../blocks/image-popup/__title/image-popup__title.css");
 @import url("../blocks/image-popup/__close/image-popup__close.css");

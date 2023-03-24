@@ -2,7 +2,6 @@ export default class Popup {
   constructor(popupSelector) {
     this.popupSelector = popupSelector;
     this.popup = document.querySelector(`.${this.popupSelector}`);
-    console.log("1");
   }
   open() {
     this.popup.classList.add(`${this.popupSelector}__opened`);
@@ -19,6 +18,7 @@ export default class Popup {
   setEventListeners() {
     const buttonClose = document.querySelector(`.${this.popupSelector}__close`);
     const outsidePopup = document.querySelector(`.${this.popupSelector}__card`);
+
     buttonClose.addEventListener("click", () => this.close());
     document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
     this.popup.addEventListener("click", () => this.close());

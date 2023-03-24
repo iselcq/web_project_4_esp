@@ -1,6 +1,8 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 import Section from "./Section.js";
+import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 //variables para formulario editar profile
 const formElement = document.querySelector(".pop-up");
@@ -82,9 +84,12 @@ newCard.addEventListener("submit", handleNewCardSubmitForm);
 //   const currentItemHTML = currentCard.generateCard();
 //   cardContainer.prepend(currentItemHTML);
 // });
+//clase abrir imagen
+const popupPhoto = new PopupWithImage("image-popup");
+popupPhoto.setEventListeners();
 //clase Card
 function cardRenderer(item) {
-  const currentCard = new Card(item, "#card-template");
+  const currentCard = new Card(item, "#card-template", popupPhoto);
   return currentCard.generateCard();
 }
 //clase Section

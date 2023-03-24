@@ -1,8 +1,10 @@
 import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 const buttonOpen = document.querySelector(".profile__edit-button");
 const buttonClose = document.querySelector(".pop-up__close");
 const btnNewCard = document.querySelector("#add-button");
+const btnOpenImage = document.querySelectorAll(".cards__image");
 // const newCardClose = document.querySelector(".new-place__close");
 const newCard = document.querySelector(".new-place");
 const formElement = document.querySelector(".pop-up");
