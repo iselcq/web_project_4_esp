@@ -1,5 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import Section from "./Section.js";
 
 //variables para formulario editar profile
 const formElement = document.querySelector(".pop-up");
@@ -77,10 +78,22 @@ function handleNewCardSubmitForm(evt) {
 newCard.addEventListener("submit", handleNewCardSubmitForm);
 
 //clase Card
-cardData.forEach((item) => {
+// cardData.forEach((item) => {
+//   const currentCard = new Card(item, "#card-template");
+//   const currentItemHTML = currentCard.generateCard();
+//   cardContainer.prepend(currentItemHTML);
+// });
+
+function cardRenderer(item) {
   const currentCard = new Card(item, "#card-template");
-  cardContainer.prepend(currentCard.generateCard());
-});
+  return currentCard.generateCard();
+}
+
+const cardSection = new Section(
+  { items: cardData, renderFunction: cardRenderer },
+  ".cards"
+);
+cardSection.renderer();
 
 //clase FormValidator Editar Perfil
 const popupConfig = {

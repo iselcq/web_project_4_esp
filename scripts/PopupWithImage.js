@@ -1,0 +1,1 @@
+class PopupWithImage extends Card {}
