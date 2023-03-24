@@ -16,7 +16,6 @@ const popupElement = document.querySelector(".pop-up__card");
 const cardElement = document.querySelector(".new-place__card");
 
 //funciones para abrir y cerrar modal para nueva tarjeta
-
 const newAddCard = new Popup("new-place");
 newAddCard.setEventListeners();
 btnNewCard.addEventListener("click", () => newAddCard.open());
