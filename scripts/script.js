@@ -3,6 +3,7 @@ import Card from "./Card.js";
 import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
 
 //variables para formulario editar profile
 const formElement = document.querySelector(".pop-up");
@@ -14,6 +15,8 @@ const newCard = document.querySelector(".new-place");
 const inputTitle = document.querySelector("#new-title");
 const inputImage = document.querySelector("#new-url");
 const cardContainer = document.querySelector(".cards");
+const buttonOpen = document.querySelector(".profile__edit-button");
+const btnNewCard = document.querySelector("#add-button");
 
 //6 tarjetas
 const cardData = [
@@ -49,35 +52,36 @@ const cardData = [
   },
 ];
 
-function handleProfileSubmitForm(evt) {
-  evt.preventDefault();
-
-  const nameValue = inputName.value;
-  const jobValue = inputJob.value;
+function handleProfileSubmitForm(evt, formInputValues) {
+  const nameValue = formInputValues[0];
+  const jobValue = formInputValues[1];
 
   profileName.textContent = nameValue;
   profileJob.textContent = jobValue;
-
-  closePopUp();
 }
 
-formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
+// formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
 
-function handleNewCardSubmitForm(evt) {
-  evt.preventDefault();
-  const titleValue = inputTitle.value;
-  const imageValue = inputImage.value;
-  const altValue = inputTitle.value;
+function handleNewCardSubmitForm(evt, formInputValues) {
+  const titleValue = formInputValues[0];
+  const imageValue = formInputValues[1];
   const addedCard = new Card(
-    { src: imageValue, alt: altValue, title: titleValue },
+    { src: imageValue, title: titleValue },
     "#card-template"
   );
-  closeCard();
 
   cardContainer.prepend(addedCard.generateCard());
 }
 
-newCard.addEventListener("submit", handleNewCardSubmitForm);
+// newCard.addEventListener("submit", handleNewCardSubmitForm);
+
+const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);
+newAddCard.setEventListeners();
+btnNewCard.addEventListener("click", () => newAddCard.open());
+
+const addProfile = new PopupWithForm("pop-up", handleProfileSubmitForm);
+addProfile.setEventListeners();
+buttonOpen.addEventListener("click", () => addProfile.open());
 
 // cardData.forEach((item) => {
 //   const currentCard = new Card(item, "#card-template");

@@ -1,9 +1,9 @@
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 
-const buttonOpen = document.querySelector(".profile__edit-button");
+// const buttonOpen = document.querySelector(".profile__edit-button");
 const buttonClose = document.querySelector(".pop-up__close");
-const btnNewCard = document.querySelector("#add-button");
+// const btnNewCard = document.querySelector("#add-button");
 const btnOpenImage = document.querySelectorAll(".cards__image");
 // const newCardClose = document.querySelector(".new-place__close");
 const newCard = document.querySelector(".new-place");
@@ -16,13 +16,13 @@ const popupElement = document.querySelector(".pop-up__card");
 const cardElement = document.querySelector(".new-place__card");
 
 //funciones para abrir y cerrar modal para nueva tarjeta
-const newAddCard = new Popup("new-place");
-newAddCard.setEventListeners();
-btnNewCard.addEventListener("click", () => newAddCard.open());
+// const newAddCard = new Popup("new-place");
+// newAddCard.setEventListeners();
+// btnNewCard.addEventListener("click", () => newAddCard.open());
 
-const addProfile = new Popup("pop-up");
-addProfile.setEventListeners();
-buttonOpen.addEventListener("click", () => addProfile.open());
+// const addProfile = new Popup("pop-up");
+// addProfile.setEventListeners();
+// buttonOpen.addEventListener("click", () => addProfile.open());
 
 //funciones para editar perfil
 // function openPopUp() {
