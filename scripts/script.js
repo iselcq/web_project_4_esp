@@ -4,6 +4,7 @@ import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 
 //variables para formulario editar profile
 const formElement = document.querySelector(".pop-up");
@@ -56,15 +57,16 @@ function handleProfileSubmitForm(evt, formInputValues) {
   const nameValue = formInputValues[0];
   const jobValue = formInputValues[1];
 
-  profileName.textContent = nameValue;
-  profileJob.textContent = jobValue;
+  const newUserInfo = new UserInfo({ userName: nameValue, userJob: jobValue });
+  newUserInfo.getUserInfo();
+  newUserInfo.setUserInfo();
+  return newUserInfo;
 }
-
-// formElement.addEventListener("submit", handleProfileSubmitForm); //Es lo mismo
 
 function handleNewCardSubmitForm(evt, formInputValues) {
   const titleValue = formInputValues[0];
   const imageValue = formInputValues[1];
+
   const addedCard = new Card(
     { src: imageValue, title: titleValue },
     "#card-template"

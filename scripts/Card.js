@@ -1,5 +1,3 @@
-// import PopupWithImage from "./PopupWithImage.js";
-
 class Card {
   constructor(cardData, templateSelector, popupInstance) {
     (this.cardData = cardData), (this.templateSelector = templateSelector);
@@ -56,21 +54,6 @@ class Card {
   handleCardClick(event) {
     this.popupInstance.open(event);
   }
-  // handleOpenImage(event) {
-  //   this.imagePopUp = document.querySelector(".image-popup");
-  //   this.imageSelected = this.imagePopUp.querySelector(".image-popup__image");
-  //   this.imageTitle = this.imagePopUp.querySelector(".image-popup__title");
-  //   this.imagePopUp.classList.add("image-popup__opened");
-  //   this.imageSelected.src = event.target.src;
-  //   this.imageSelected.alt = event.target.alt;
-  //   this.imageTitle.innerText =
-  //     event.target.parentElement.children[2].children[0].innerText;
-  // }
-
-  // handleCloseImage(event) {
-  //   this.imageForm = document.querySelector(".image-popup");
-  //   this.imageForm.classList.remove("image-popup__opened");
-  // }
 
   generateCard() {
     this.cardTemplateClone.querySelector(".cards__image").src =
