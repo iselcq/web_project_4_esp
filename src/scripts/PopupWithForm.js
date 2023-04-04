@@ -12,11 +12,16 @@ export default class PopupWithForm extends Popup {
     return inputValues;
   }
 
+  setInputValues(name, job) {
+    this.inputs[0].value = name;
+    this.inputs[1].value = job;
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this.popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this.submitFunction(evt, this._getInputValues());
+      this.submitFunction(this._getInputValues());
       this.close();
     });
   }

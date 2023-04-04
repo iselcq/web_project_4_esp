@@ -1,10 +1,10 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import Section from "./Section.js";
-import Popup from "./Popup.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
+import FormValidator from "./scripts/FormValidator.js";
+import Card from "./scripts/Card.js";
+import Section from "./scripts/Section.js";
+import Popup from "./scripts/Popup.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
+import PopupWithForm from "./scripts/PopupWithForm.js";
+import UserInfo from "./scripts/UserInfo.js";
 
 //variables para formulario editar profile
 const formElement = document.querySelector(".pop-up");
@@ -53,17 +53,19 @@ const cardData = [
   },
 ];
 
-function handleProfileSubmitForm(evt, formInputValues) {
+const newUserInfo = new UserInfo({
+  userNameSelector: ".profile__name",
+  userJobSelector: ".profile__profession",
+});
+
+function handleProfileSubmitForm(formInputValues) {
   const nameValue = formInputValues[0];
   const jobValue = formInputValues[1];
-
-  const newUserInfo = new UserInfo({ userName: nameValue, userJob: jobValue });
-  newUserInfo.getUserInfo();
-  newUserInfo.setUserInfo();
+  newUserInfo.setUserInfo(nameValue, jobValue);
   return newUserInfo;
 }
 
-function handleNewCardSubmitForm(evt, formInputValues) {
+function handleNewCardSubmitForm(formInputValues) {
   const titleValue = formInputValues[0];
   const imageValue = formInputValues[1];
 
@@ -79,11 +81,17 @@ function handleNewCardSubmitForm(evt, formInputValues) {
 
 const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);
 newAddCard.setEventListeners();
-btnNewCard.addEventListener("click", () => newAddCard.open());
+btnNewCard.addEventListener("click", () => {
+  newAddCard.open();
+});
 
 const addProfile = new PopupWithForm("pop-up", handleProfileSubmitForm);
 addProfile.setEventListeners();
-buttonOpen.addEventListener("click", () => addProfile.open());
+buttonOpen.addEventListener("click", () => {
+  const userInfo = newUserInfo.getUserInfo();
+  addProfile.setInputValues(userInfo.name, userInfo.job);
+  addProfile.open();
+});
 
 // cardData.forEach((item) => {
 //   const currentCard = new Card(item, "#card-template");

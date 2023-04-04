@@ -1,0 +1,17 @@
+{
+  "name": "web_project_4_esp",
+  "version": "1.0.0",
+  "description": "Una página web para agregar fotografias y darles like, con la opción de editar datos del perfil.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack",
+    "dev": "webpack serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
+  }
+}
