@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/normalize.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
 
     <title>Alrededor de los EE.UU.</title>
   </head>
@@ -12,8 +10,9 @@
     <div class="page">
       <header class="header">
         <img
-          src="images/__logo.svg"
-          alt="logotipo blanco de Around The U.S."
+          src="<%=require('./images/__logo.svg')%>"
+          alt="logotipo blanco de Around
+        The U.S."
           class="logo"
         />
       </header>
@@ -21,7 +20,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="imagen de Jacques Cousteau"
             class="profile__avatar"
           />
@@ -123,15 +122,11 @@
       </div>
     </div>
     <div class="image-popup">
-      <div class="image-popup__section">
+      <div class="image-popup__card">
         <img src=" " alt=" " class="image-popup__image" />
         <button class="image-popup__close" id="image-popup__close"></button>
         <h3 class="image-popup__title"></h3>
       </div>
     </div>
-    <script type="module" src="./scripts/script.js"></script>
-    <script src="./scripts/utils.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
   </body>
 </html>

@@ -1,2 +1,4 @@
 .editorconfig
 .nojekyll
+node_modules 
+dist 

@@ -1,7 +1,8 @@
 class Card {
-  constructor(cardData, templateSelector) {
+  constructor(cardData, templateSelector, popupInstance) {
     (this.cardData = cardData), (this.templateSelector = templateSelector);
     this._generateTemplate();
+    this.popupInstance = popupInstance;
   }
 
   _generateTemplate() {
@@ -22,8 +23,9 @@ class Card {
   _detectEvt() {
     this.removeButton.addEventListener("click", this.handleRemove);
     this.likeButton.addEventListener("click", this.handleLike);
-    this.popupImage.addEventListener("click", this.handleOpenImage);
-    this.closeImage.addEventListener("click", this.handleCloseImage);
+    this.popupImage.addEventListener("click", (evt) =>
+      this.handleCardClick(evt)
+    );
   }
 
   handleLike(event) {
@@ -48,21 +50,8 @@ class Card {
     this.imageValue = inputImage.value;
     this.altValue = inputTitle.value;
   }
-
-  handleOpenImage(event) {
-    this.imagePopUp = document.querySelector(".image-popup");
-    this.imageSelected = this.imagePopUp.querySelector(".image-popup__image");
-    this.imageTitle = this.imagePopUp.querySelector(".image-popup__title");
-    this.imagePopUp.classList.add("image-popup__opened");
-    this.imageSelected.src = event.target.src;
-    this.imageSelected.alt = event.target.alt;
-    this.imageTitle.innerText =
-      event.target.parentElement.children[2].children[0].innerText;
-  }
-
-  handleCloseImage(event) {
-    this.imageForm = document.querySelector(".image-popup");
-    this.imageForm.classList.remove("image-popup__opened");
+  handleCardClick(event) {
+    this.popupInstance.open(event);
   }
 
   generateCard() {
