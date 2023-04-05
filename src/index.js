@@ -5,49 +5,48 @@ import Popup from "./scripts/Popup.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import UserInfo from "./scripts/UserInfo.js";
+import "./styles/index.css";
 
-//variables para formulario editar profile
-const formElement = document.querySelector(".pop-up");
-const inputName = document.querySelector("#user-name");
-const inputJob = document.querySelector("#user-profession");
-const profileName = document.querySelector(".profile__name");
-const profileJob = document.querySelector(".profile__profession");
-const newCard = document.querySelector(".new-place");
-const inputTitle = document.querySelector("#new-title");
-const inputImage = document.querySelector("#new-url");
 const cardContainer = document.querySelector(".cards");
 const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
 
+const montanasCalvas = require("./images/cannonBeach.png");
+const whiteSands = require("./images/whiteSands.png");
+const kilauea = require("./images/kilauea.png");
+const haleakala = require("./images/haleakala.png");
+const bodie = require("./images/bodieIsland.png");
+const antelope = require("./images/antelopeCanyon.png");
+
 //6 tarjetas
 const cardData = [
   {
-    src: "images/cannonBeach.png",
+    src: montanasCalvas,
     alt: "Imagen de Cannon Beach con una gran roca al fondo",
     title: "Cannon Beach",
   },
   {
-    src: "images/whiteSands.png",
+    src: whiteSands,
     alt: "Imagen de un campo de dunas blancas en Nuevo Mexico",
     title: "White Sands",
   },
   {
-    src: "images/kilauea.png",
+    src: kilauea,
     alt: "Imagen de la erupción en el volcán Kilauea",
     title: "Volcán Kilauea",
   },
   {
-    src: "images/bodieIsland.png",
+    src: bodie,
     alt: "Imagen del Faro de Bodie Island encendido",
     title: "Bodie Island Lighthouse",
   },
   {
-    src: "images/antelopeCanyon.png",
+    src: antelope,
     alt: "Imagen dentro de los cañones de ranura en Arizona",
     title: "Cañón del Antílope",
   },
   {
-    src: "images/haleakala.png",
+    src: haleakala,
     alt: "Imagen de la cima del volcán Haleakala con niebla",
     title: "Haleakalā",
   },
@@ -77,8 +76,6 @@ function handleNewCardSubmitForm(formInputValues) {
   cardContainer.prepend(addedCard.generateCard());
 }
 
-// newCard.addEventListener("submit", handleNewCardSubmitForm);
-
 const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);
 newAddCard.setEventListeners();
 btnNewCard.addEventListener("click", () => {
@@ -93,11 +90,6 @@ buttonOpen.addEventListener("click", () => {
   addProfile.open();
 });
 
-// cardData.forEach((item) => {
-//   const currentCard = new Card(item, "#card-template");
-//   const currentItemHTML = currentCard.generateCard();
-//   cardContainer.prepend(currentItemHTML);
-// });
 //clase abrir imagen
 const popupPhoto = new PopupWithImage("image-popup");
 popupPhoto.setEventListeners();

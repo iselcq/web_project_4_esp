@@ -26,7 +26,6 @@ class Card {
     this.popupImage.addEventListener("click", (evt) =>
       this.handleCardClick(evt)
     );
-    // this.closeImage.addEventListener("click", this.handleCloseImage);
   }
 
   handleLike(event) {
