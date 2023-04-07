@@ -5,9 +5,11 @@ export default class Popup {
   }
   open() {
     this.popup.classList.add(`${this.popupSelector}__opened`);
+    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
   }
   close() {
     this.popup.classList.remove(`${this.popupSelector}__opened`);
+    document.removeEventListener("keydown", (evt) => this._handleEscClose(evt));
   }
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
@@ -18,10 +20,7 @@ export default class Popup {
   setEventListeners() {
     const buttonClose = document.querySelector(`.${this.popupSelector}__close`);
     const outsidePopup = document.querySelector(`.${this.popupSelector}__card`);
-
     buttonClose.addEventListener("click", () => this.close());
-    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
-
     this.popup.addEventListener("click", () => this.close());
     outsidePopup.addEventListener("click", (evt) => {
       evt.stopPropagation();

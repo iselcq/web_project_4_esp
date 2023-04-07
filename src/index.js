@@ -1,13 +1,11 @@
 import FormValidator from "./scripts/FormValidator.js";
 import Card from "./scripts/Card.js";
 import Section from "./scripts/Section.js";
-import Popup from "./scripts/Popup.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./styles/index.css";
 
-const cardContainer = document.querySelector(".cards");
 const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
 
@@ -67,14 +65,13 @@ function handleProfileSubmitForm(formInputValues) {
 function handleNewCardSubmitForm(formInputValues) {
   const titleValue = formInputValues[0];
   const imageValue = formInputValues[1];
+  const newCardData = { src: imageValue, alt: titleValue, title: titleValue };
 
-  const addedCard = new Card(
-    { src: imageValue, title: titleValue },
-    "#card-template",
-    openSelectedImage
+  const newCardSection = new Section(
+    { items: [newCardData], renderFunction: cardRenderer },
+    ".cards"
   );
-
-  cardContainer.prepend(addedCard.generateCard());
+  newCardSection.renderer();
 }
 
 //clase abrir imagen
