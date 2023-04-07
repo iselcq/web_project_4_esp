@@ -70,12 +70,32 @@ function handleNewCardSubmitForm(formInputValues) {
 
   const addedCard = new Card(
     { src: imageValue, title: titleValue },
-    "#card-template"
+    "#card-template",
+    openSelectedImage
   );
 
   cardContainer.prepend(addedCard.generateCard());
 }
 
+//clase abrir imagen
+const popupPhoto = new PopupWithImage("image-popup");
+popupPhoto.setEventListeners();
+
+//clase Card
+function cardRenderer(item) {
+  const currentCard = new Card(item, "#card-template", openSelectedImage);
+  return currentCard.generateCard();
+}
+//clase Section
+const cardSection = new Section(
+  { items: cardData, renderFunction: cardRenderer },
+  ".cards"
+);
+cardSection.renderer();
+
+function openSelectedImage(event) {
+  popupPhoto.open(event);
+}
 const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);
 newAddCard.setEventListeners();
 btnNewCard.addEventListener("click", () => {
@@ -89,21 +109,6 @@ buttonOpen.addEventListener("click", () => {
   addProfile.setInputValues(userInfo.name, userInfo.job);
   addProfile.open();
 });
-
-//clase abrir imagen
-const popupPhoto = new PopupWithImage("image-popup");
-popupPhoto.setEventListeners();
-//clase Card
-function cardRenderer(item) {
-  const currentCard = new Card(item, "#card-template", popupPhoto);
-  return currentCard.generateCard();
-}
-//clase Section
-const cardSection = new Section(
-  { items: cardData, renderFunction: cardRenderer },
-  ".cards"
-);
-cardSection.renderer();
 
 //clase FormValidator Editar Perfil
 const popupConfig = {

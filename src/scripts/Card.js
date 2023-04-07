@@ -1,8 +1,8 @@
 class Card {
-  constructor(cardData, templateSelector, popupInstance) {
+  constructor(cardData, templateSelector, openImage) {
     (this.cardData = cardData), (this.templateSelector = templateSelector);
     this._generateTemplate();
-    this.popupInstance = popupInstance;
+    this.openImage = openImage;
   }
 
   _generateTemplate() {
@@ -50,8 +50,9 @@ class Card {
     this.imageValue = inputImage.value;
     this.altValue = inputTitle.value;
   }
+
   handleCardClick(event) {
-    this.popupInstance.open(event);
+    this.openImage(event);
   }
 
   generateCard() {
