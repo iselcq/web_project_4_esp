@@ -5,6 +5,7 @@ import PopupWithImage from "./scripts/PopupWithImage.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./styles/index.css";
+import Api from "./scripts/Api.js";
 
 const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
@@ -15,6 +16,17 @@ const kilauea = require("./images/kilauea.png");
 const haleakala = require("./images/haleakala.png");
 const bodie = require("./images/bodieIsland.png");
 const antelope = require("./images/antelopeCanyon.png");
+
+// const api = new Api({
+//   baseUrl: "https://around.nomoreparties.co/v1/web_es_cohort_05",
+//   headers: {
+//     authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+//     "Content-Type": "application/json",
+//   },
+// });
+
+// api.getInitialCards();
+// api.getUserInfo();
 
 //6 tarjetas
 const cardData = [
