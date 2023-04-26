@@ -19,11 +19,14 @@
 
       <main class="content">
         <section class="profile">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="imagen de Jacques Cousteau"
-            class="profile__avatar"
-          />
+          <div class="profile__wrapper">
+            <img
+              src="<%=require('./images/avatar.jpg')%>"
+              alt="imagen de Jacques Cousteau"
+              class="profile__avatar"
+            />
+            <button class="profile__avatar-edit" id="avatar-bedit"></button>
+          </div>
           <div class="profile__info">
             <div class="profile__user">
               <h1 class="profile__name">Jacques Cousteau</h1>
