@@ -1,0 +1,7 @@
+.profile-pic__input_error {
+  border-color: #ff0000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  max-width: 358px;
+}

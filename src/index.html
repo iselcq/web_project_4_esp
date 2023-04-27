@@ -25,7 +25,7 @@
               alt="imagen de Jacques Cousteau"
               class="profile__avatar"
             />
-            <button class="profile__avatar-edit" id="avatar-bedit"></button>
+            <button class="profile__avatar-edit" id="avatar-edit"></button>
           </div>
           <div class="profile__info">
             <div class="profile__user">
@@ -129,6 +129,32 @@
         <img src=" " alt=" " class="image-popup__image" />
         <button class="image-popup__close" id="image-popup__close"></button>
         <h3 class="image-popup__title"></h3>
+      </div>
+    </div>
+    <div class="profile-pic">
+      <div class="profile-pic__card">
+        <button class="profile-pic__close"></button>
+        <h3 class="profile-pic__title">Cambiar foto de perfil</h3>
+        <form id="profile-pic__form">
+          <fieldset class="profile-pic__container">
+            <input
+              type="url"
+              class="profile-pic__input"
+              id="url"
+              name="url"
+              pattern="https://.*"
+              placeholder="https://somewebsite.com/someimage.jpg"
+              required
+            />
+            <p id="url-error" class="profile-pic__input_error"></p>
+          </fieldset>
+          <button
+            type="submit"
+            class="profile-pic__submit profile-pic__submit_disabled"
+          >
+            Guardar
+          </button>
+        </form>
       </div>
     </div>
   </body>

@@ -1,0 +1,6 @@
+.profile-pic__container {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}

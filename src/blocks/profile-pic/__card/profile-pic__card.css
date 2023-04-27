@@ -1,0 +1,15 @@
+.profile-pic__card {
+  background-color: #fff;
+
+  width: 430px;
+  /* height: 330px; */
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 767px) {
+  .profile-pic__card {
+    width: 282px;
+  }
+}

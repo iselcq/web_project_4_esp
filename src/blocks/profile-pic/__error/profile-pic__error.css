@@ -1,0 +1,14 @@
+.profile-pic__error {
+  color: #ff0000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  display: none;
+  margin-left: 35px;
+  margin-top: 8px;
+  max-width: 358px;
+}
+
+.profile-pic__error_active {
+  display: block;
+}

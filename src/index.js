@@ -9,6 +9,7 @@ import Api from "./scripts/Api.js";
 
 const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
+const btnProfileImg = document.querySelector(".profile__avatar-edit");
 
 const montanasCalvas = require("./images/cannonBeach.png");
 const whiteSands = require("./images/whiteSands.png");
@@ -65,6 +66,7 @@ const cardData = [
 const newUserInfo = new UserInfo({
   userNameSelector: ".profile__name",
   userJobSelector: ".profile__profession",
+  userImgSelector: ".profile__avatar",
 });
 
 function handleProfileSubmitForm(formInputValues) {
@@ -84,6 +86,12 @@ function handleNewCardSubmitForm(formInputValues) {
     ".cards"
   );
   newCardSection.renderer();
+}
+
+function handleProfileImgSubmitForm(formInputValues) {
+  const imgValue = formInputValues[0];
+  newUserInfo.setUserImg(imgValue);
+  return newUserInfo;
 }
 
 //clase abrir imagen
@@ -119,6 +127,15 @@ buttonOpen.addEventListener("click", () => {
   addProfile.open();
 });
 
+const addProfileImg = new PopupWithForm(
+  "profile-pic",
+  handleProfileImgSubmitForm
+);
+addProfileImg.setEventListeners();
+btnProfileImg.addEventListener("click", () => {
+  addProfileImg.open();
+});
+
 //clase FormValidator Editar Perfil
 const popupConfig = {
   formSelector: "#pop-up__form",
@@ -148,3 +165,21 @@ const newCardForm = document.querySelector(newCardConfig.formSelector);
 const newCardValidation = new FormValidator(newCardConfig, newCardForm);
 
 newCardValidation.enableValidation();
+
+//clase FormValidator Editar Perfil
+const profileImgConfig = {
+  formSelector: "#profile-pic__form",
+  inputSelector: ".profile-pic__input",
+  submitButtonSelector: ".profile-pic__submit",
+  inactiveButtonClass: "profile-pic__submit_disabled",
+  inputErrorClass: ".profile-pic__input_error",
+  errorClass: ".profile-pic__error_active",
+};
+const profileImgForm = document.querySelector(profileImgConfig.formSelector);
+
+const profileImgFormValidation = new FormValidator(
+  profileImgConfig,
+  profileImgForm
+);
+
+profileImgFormValidation.enableValidation();
