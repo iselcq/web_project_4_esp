@@ -1,2 +1,9 @@
 .cards__like-count {
+  margin-top: 3px;
+  margin-left: 6px;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 0;
 }
