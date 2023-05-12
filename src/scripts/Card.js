@@ -1,6 +1,7 @@
 class Card {
   constructor(cardData, templateSelector, openImage) {
-    (this.cardData = cardData), (this.templateSelector = templateSelector);
+    this.cardData = cardData;
+    this.templateSelector = templateSelector;
     this._generateTemplate();
     this.openImage = openImage;
   }
@@ -62,6 +63,8 @@ class Card {
       this.cardData.alt;
     this.cardTemplateClone.querySelector(".cards__location").textContent =
       this.cardData.title;
+    this.cardTemplateClone.querySelector(".cards__like-count").textContent =
+      this.cardData.likes.length;
     this._setCardProperties();
     this._detectEvt();
 

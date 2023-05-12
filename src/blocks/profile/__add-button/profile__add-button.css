@@ -10,7 +10,7 @@
   background-image: url("../../../images/agregar.svg");
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 3;
+  z-index: 0;
 }
 
 .profile__add-button:hover {

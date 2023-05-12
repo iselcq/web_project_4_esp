@@ -11,62 +11,24 @@ const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
 const btnProfileImg = document.querySelector(".profile__avatar-edit");
 
-const montanasCalvas = require("./images/cannonBeach.png");
-const whiteSands = require("./images/whiteSands.png");
-const kilauea = require("./images/kilauea.png");
-const haleakala = require("./images/haleakala.png");
-const bodie = require("./images/bodieIsland.png");
-const antelope = require("./images/antelopeCanyon.png");
-
-// const api = new Api({
-//   baseUrl: "https://around.nomoreparties.co/v1/web_es_cohort_05",
-//   headers: {
-//     authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
-//     "Content-Type": "application/json",
-//   },
-// });
-
-// api.getInitialCards();
-// api.getUserInfo();
-
-//6 tarjetas
-const cardData = [
-  {
-    src: montanasCalvas,
-    alt: "Imagen de Cannon Beach con una gran roca al fondo",
-    title: "Cannon Beach",
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_es_cohort_05",
+  headers: {
+    authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+    "Content-Type": "application/json",
   },
-  {
-    src: whiteSands,
-    alt: "Imagen de un campo de dunas blancas en Nuevo Mexico",
-    title: "White Sands",
-  },
-  {
-    src: kilauea,
-    alt: "Imagen de la erupción en el volcán Kilauea",
-    title: "Volcán Kilauea",
-  },
-  {
-    src: bodie,
-    alt: "Imagen del Faro de Bodie Island encendido",
-    title: "Bodie Island Lighthouse",
-  },
-  {
-    src: antelope,
-    alt: "Imagen dentro de los cañones de ranura en Arizona",
-    title: "Cañón del Antílope",
-  },
-  {
-    src: haleakala,
-    alt: "Imagen de la cima del volcán Haleakala con niebla",
-    title: "Haleakalā",
-  },
-];
+});
 
 const newUserInfo = new UserInfo({
   userNameSelector: ".profile__name",
   userJobSelector: ".profile__profession",
   userImgSelector: ".profile__avatar",
+});
+
+api.getUserInfo().then((res) => {
+  newUserInfo.setUserImg(res.avatar);
+  newUserInfo.setUserInfo(res.name, res.about);
+  newUserInfo.setUserId(res._id);
 });
 
 function handleProfileSubmitForm(formInputValues) {
@@ -103,12 +65,24 @@ function cardRenderer(item) {
   const currentCard = new Card(item, "#card-template", openSelectedImage);
   return currentCard.generateCard();
 }
+
 //clase Section
-const cardSection = new Section(
-  { items: cardData, renderFunction: cardRenderer },
-  ".cards"
-);
-cardSection.renderer();
+api.getInitialCards().then((res) => {
+  const serverData = res.map((item) => {
+    return {
+      title: item.name,
+      alt: item.name,
+      src: item.link,
+      likes: item.likes,
+      id: item._id,
+    };
+  });
+  const cardSection = new Section(
+    { items: serverData, renderFunction: cardRenderer },
+    ".cards"
+  );
+  cardSection.renderer();
+});
 
 function openSelectedImage(event) {
   popupPhoto.open(event);

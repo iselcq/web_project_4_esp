@@ -3,6 +3,7 @@ export default class UserInfo {
     this.userNameNode = document.querySelector(userNameSelector);
     this.userJobNode = document.querySelector(userJobSelector);
     this.userImgNode = document.querySelector(userImgSelector);
+    this.userId = "";
   }
 
   getUserInfo() {
@@ -19,5 +20,9 @@ export default class UserInfo {
   }
   setUserImg(url) {
     this.userImgNode.src = url;
+  }
+
+  setUserId(id) {
+    this.userId = id;
   }
 }
