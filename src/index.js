@@ -34,7 +34,15 @@ api.getUserInfo().then((res) => {
 function handleProfileSubmitForm(formInputValues) {
   const nameValue = formInputValues[0];
   const jobValue = formInputValues[1];
-  newUserInfo.setUserInfo(nameValue, jobValue);
+  api
+    .editUserInfo(nameValue, jobValue)
+    .then((res) => {
+      newUserInfo.setUserInfo(nameValue, jobValue);
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   return newUserInfo;
 }
 
@@ -52,7 +60,13 @@ function handleNewCardSubmitForm(formInputValues) {
 
 function handleProfileImgSubmitForm(formInputValues) {
   const imgValue = formInputValues[0];
-  newUserInfo.setUserImg(imgValue);
+  api
+    .editUserAvatar(imgValue)
+    .then((res) => {
+      newUserInfo.setUserImg(imgValue);
+      console.log(res.avatar);
+    })
+    .catch((res) => console.log(res));
   return newUserInfo;
 }
 

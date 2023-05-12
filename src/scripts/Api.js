@@ -34,4 +34,46 @@ export default class Api {
         console.log(err);
       });
   }
+
+  editUserInfo(name, about) {
+    return fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
+      method: "PATCH",
+      headers: {
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        about,
+      }),
+    }).then((res) => {
+      console.log(res);
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  editUserAvatar(avatar) {
+    return fetch(
+      "https://around.nomoreparties.co/v1/web_es_05/users/me/avatar",
+      {
+        method: "PATCH",
+        headers: {
+          authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          avatar,
+        }),
+      }
+    ).then((res) => {
+      console.log(res);
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
