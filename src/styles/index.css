@@ -65,3 +65,9 @@
 @import url("../blocks/profile-pic/__submit/profile-pic__submit.css");
 @import url("../blocks/profile-pic/__submit/_disabled/profile-pic__submit_disabled.css");
 @import url("../blocks/profile-pic/__error/profile-pic__error.css");
+
+@import url("../blocks/delete-card/delete-card.css");
+@import url("../blocks/delete-card/__close/delete-card__close.css");
+@import url("../blocks/delete-card/__submit/delete-card__submit.css");
+@import url("../blocks/delete-card/__card/delete-card__card.css");
+@import url("../blocks/delete-card/__title/delete-card__title.css");
