@@ -42,7 +42,7 @@ class Card {
   }
 
   handleRemove(event) {
-    this.deleteCard(event);
+    this.deleteCard(event, this.cardData.id);
   }
 
   handleNewCardSubmitForm(event) {

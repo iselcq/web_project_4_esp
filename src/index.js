@@ -86,9 +86,9 @@ function handleProfileImgSubmitForm(formInputValues) {
   return newUserInfo;
 }
 
-function handleCardDelete(event) {
-  console.log(event);
+function handleCardDelete(event, id) {
   event.target.parentElement.remove();
+  api.deleteCard(id);
 }
 
 //clase abrir imagen
@@ -133,8 +133,8 @@ function openSelectedImage(event) {
   popupPhoto.open(event);
 }
 
-function deleteSelectedCard(event) {
-  popupDelete.open(event);
+function deleteSelectedCard(event, id) {
+  popupDelete.open(event, id);
 }
 
 const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);

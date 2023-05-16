@@ -96,4 +96,19 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  deleteCard(id) {
+    return fetch(`https://around.nomoreparties.co/v1/web_es_05/cards/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+      },
+    }).then((res) => {
+      console.log(res);
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
