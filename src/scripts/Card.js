@@ -62,6 +62,8 @@ class Card {
       this.cardData.alt;
     this.cardTemplateClone.querySelector(".cards__location").textContent =
       this.cardData.title;
+    this.cardTemplateClone.querySelector(".cards__like-count").textContent =
+      this.cardData.likes.length;
     this._setCardProperties();
     this._detectEvt();
     if (this.cardData.removeBtn) {
