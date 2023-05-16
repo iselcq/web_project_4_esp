@@ -1,7 +1,6 @@
 class Card {
   constructor(cardData, templateSelector, openImage) {
-    this.cardData = cardData;
-    this.templateSelector = templateSelector;
+    (this.cardData = cardData), (this.templateSelector = templateSelector);
     this._generateTemplate();
     this.openImage = openImage;
   }
@@ -63,10 +62,11 @@ class Card {
       this.cardData.alt;
     this.cardTemplateClone.querySelector(".cards__location").textContent =
       this.cardData.title;
-    this.cardTemplateClone.querySelector(".cards__like-count").textContent =
-      this.cardData.likes.length;
     this._setCardProperties();
     this._detectEvt();
+    if (this.cardData.removeBtn) {
+      this.removeButton.classList.add("cards__remove_enabled");
+    }
 
     return this.cardTemplateClone;
   }

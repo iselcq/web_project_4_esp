@@ -49,13 +49,28 @@ function handleProfileSubmitForm(formInputValues) {
 function handleNewCardSubmitForm(formInputValues) {
   const titleValue = formInputValues[0];
   const imageValue = formInputValues[1];
-  const newCardData = { src: imageValue, alt: titleValue, title: titleValue };
-
-  const newCardSection = new Section(
-    { items: [newCardData], renderFunction: cardRenderer },
-    ".cards"
-  );
-  newCardSection.renderer();
+  const newCardData = {
+    src: imageValue,
+    alt: titleValue,
+    title: titleValue,
+    likes: [],
+    removeBtn: true,
+    id: "", //Obtener del servidor
+  };
+  api
+    .addNewCard(titleValue, imageValue)
+    .then((res) => {
+      console.log(res);
+      newCardData.id = res._id;
+      const newCardSection = new Section(
+        { items: [newCardData], renderFunction: cardRenderer },
+        ".cards"
+      );
+      newCardSection.renderer();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function handleProfileImgSubmitForm(formInputValues) {
@@ -89,6 +104,7 @@ api.getInitialCards().then((res) => {
       src: item.link,
       likes: item.likes,
       id: item._id,
+      removeBtn: item.owner._id === newUserInfo.userId,
     };
   });
   const cardSection = new Section(

@@ -10,8 +10,13 @@
   background-position: center;
   background-color: transparent;
   cursor: pointer;
+  visibility: hidden;
 }
 
 .cards__remove:hover {
   opacity: 0.5;
+}
+
+.cards__remove_enabled {
+  visibility: visible;
 }
