@@ -28,15 +28,17 @@
   bottom: 0;
   right: 0;
   /* display: none; */
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
   visibility: hidden;
-  opacity: 1;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+
+  opacity: 0;
   font-family: "Inter";
 }
 
 .delete-card__opened {
   /* display: flex; */
-  visibility: hidden;
+  visibility: visible;
+
   opacity: 1;
   transition-delay: 0s;
 }

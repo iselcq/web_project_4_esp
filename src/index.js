@@ -6,6 +6,7 @@ import PopupWithForm from "./scripts/PopupWithForm.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./styles/index.css";
 import Api from "./scripts/Api.js";
+import PopupDeleteCard from "./scripts/PopupDeleteCard.js";
 
 const buttonOpen = document.querySelector(".profile__edit-button");
 const btnNewCard = document.querySelector("#add-button");
@@ -85,13 +86,27 @@ function handleProfileImgSubmitForm(formInputValues) {
   return newUserInfo;
 }
 
+function handleCardDelete(event) {
+  console.log(event);
+  event.target.parentElement.remove();
+}
+
 //clase abrir imagen
 const popupPhoto = new PopupWithImage("image-popup");
 popupPhoto.setEventListeners();
 
+//clase borrar tarjeta
+const popupDelete = new PopupDeleteCard("delete-card", handleCardDelete);
+popupDelete.setEventListeners();
+
 //clase Card
 function cardRenderer(item) {
-  const currentCard = new Card(item, "#card-template", openSelectedImage);
+  const currentCard = new Card(
+    item,
+    "#card-template",
+    openSelectedImage,
+    deleteSelectedCard
+  );
   return currentCard.generateCard();
 }
 
@@ -117,6 +132,11 @@ api.getInitialCards().then((res) => {
 function openSelectedImage(event) {
   popupPhoto.open(event);
 }
+
+function deleteSelectedCard(event) {
+  popupDelete.open(event);
+}
+
 const newAddCard = new PopupWithForm("new-place", handleNewCardSubmitForm);
 newAddCard.setEventListeners();
 btnNewCard.addEventListener("click", () => {
