@@ -34,7 +34,6 @@ export default class Api {
         console.log(err);
       });
   }
-
   editUserInfo(name, about) {
     return fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
       method: "PATCH",
@@ -54,7 +53,6 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-
   editUserAvatar(avatar) {
     return fetch(
       "https://around.nomoreparties.co/v1/web_es_05/users/me/avatar",
@@ -76,7 +74,6 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-
   addNewCard(name, link) {
     return fetch("https://around.nomoreparties.co/v1/web_es_05/cards", {
       method: "POST",
@@ -96,7 +93,6 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-
   deleteCard(id) {
     return fetch(`https://around.nomoreparties.co/v1/web_es_05/cards/${id}`, {
       method: "DELETE",
@@ -104,6 +100,24 @@ export default class Api {
         authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
       },
     }).then((res) => {
+      console.log(res);
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+  likeAndUnlike(id, action) {
+    return fetch(
+      `https://around.nomoreparties.co/v1/web_es_05/cards/likes/${id}`,
+      {
+        method: action,
+        headers: {
+          authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
       console.log(res);
       if (res.ok) {
         return res.json();

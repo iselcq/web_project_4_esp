@@ -74,6 +74,10 @@ function handleNewCardSubmitForm(formInputValues) {
     });
 }
 
+function handleSubmitLoad() {}
+function submitSent() {}
+function submitError() {}
+
 function handleProfileImgSubmitForm(formInputValues) {
   const imgValue = formInputValues[0];
   api
@@ -91,6 +95,20 @@ function handleCardDelete(event, id) {
   api.deleteCard(id);
 }
 
+function handleLike(likeStatus, id, event) {
+  api
+    .likeAndUnlike(id, likeStatus ? "DELETE" : "PUT")
+    .then((res) => {
+      console.log(res.avatar);
+      if (likeStatus) {
+        event.target.classList.remove("cards__like-button_active");
+      } else {
+        event.target.classList.add("cards__like-button_active");
+      }
+    })
+    .catch((res) => console.log(res));
+}
+
 //clase abrir imagen
 const popupPhoto = new PopupWithImage("image-popup");
 popupPhoto.setEventListeners();
@@ -105,7 +123,8 @@ function cardRenderer(item) {
     item,
     "#card-template",
     openSelectedImage,
-    deleteSelectedCard
+    deleteSelectedCard,
+    handleLike
   );
   return currentCard.generateCard();
 }

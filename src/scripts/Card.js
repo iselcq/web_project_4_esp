@@ -1,9 +1,10 @@
 class Card {
-  constructor(cardData, templateSelector, openImage, deleteCard) {
+  constructor(cardData, templateSelector, openImage, deleteCard, likeCard) {
     (this.cardData = cardData), (this.templateSelector = templateSelector);
     this._generateTemplate();
     this.openImage = openImage;
     this.deleteCard = deleteCard;
+    this.likeCard = likeCard;
   }
 
   _generateTemplate() {
@@ -25,20 +26,17 @@ class Card {
     this.removeButton.addEventListener("click", (evt) =>
       this.handleRemove(evt)
     );
-    this.likeButton.addEventListener("click", this.handleLike);
+    this.likeButton.addEventListener("click", (evt) => this.handleLike(evt));
     this.popupImage.addEventListener("click", (evt) =>
       this.handleCardClick(evt)
     );
   }
 
   handleLike(event) {
-    if (
-      event.target.className === "cards__like-button cards__like-button_active"
-    ) {
-      event.target.classList.remove("cards__like-button_active");
-    } else {
-      event.target.classList.add("cards__like-button_active");
-    }
+    const likeStatus =
+      event.target.className === "cards__like-button cards__like-button_active";
+
+    this.likeCard(likeStatus, this.cardData.id, event);
   }
 
   handleRemove(event) {
