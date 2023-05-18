@@ -95,18 +95,15 @@ function handleCardDelete(event, id) {
   api.deleteCard(id);
 }
 
-function handleLike(likeStatus, id, event) {
-  api
-    .likeAndUnlike(id, likeStatus ? "DELETE" : "PUT")
-    .then((res) => {
-      console.log(res.avatar);
-      if (likeStatus) {
-        event.target.classList.remove("cards__like-button_active");
-      } else {
-        event.target.classList.add("cards__like-button_active");
-      }
-    })
-    .catch((res) => console.log(res));
+function handleLike(likeStatus, id) {
+  return new Promise((resolve) => {
+    api
+      .likeAndUnlike(id, likeStatus ? "DELETE" : "PUT")
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((res) => console.log(res));
+  });
 }
 
 //clase abrir imagen

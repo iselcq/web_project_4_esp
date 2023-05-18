@@ -35,8 +35,16 @@ class Card {
   handleLike(event) {
     const likeStatus =
       event.target.className === "cards__like-button cards__like-button_active";
-
-    this.likeCard(likeStatus, this.cardData.id, event);
+    this.likeCard(likeStatus, this.cardData.id).then((res) => {
+      console.log(res);
+      if (likeStatus) {
+        event.target.classList.remove("cards__like-button_active");
+      } else {
+        event.target.classList.add("cards__like-button_active");
+      }
+      this.cardTemplateClone.querySelector(".cards__like-count").textContent =
+        res.likes.length;
+    });
   }
 
   handleRemove(event) {
