@@ -36,7 +36,6 @@ class Card {
     const likeStatus =
       event.target.className === "cards__like-button cards__like-button_active";
     this.likeCard(likeStatus, this.cardData.id).then((res) => {
-      console.log(res);
       if (likeStatus) {
         event.target.classList.remove("cards__like-button_active");
       } else {

@@ -100,7 +100,6 @@ export default class Api {
         authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
       },
     }).then((res) => {
-      console.log(res);
       if (res.ok) {
         return res.json();
       }

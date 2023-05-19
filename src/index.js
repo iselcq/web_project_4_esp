@@ -35,16 +35,18 @@ api.getUserInfo().then((res) => {
 function handleProfileSubmitForm(formInputValues) {
   const nameValue = formInputValues[0];
   const jobValue = formInputValues[1];
-  api
-    .editUserInfo(nameValue, jobValue)
-    .then((res) => {
-      newUserInfo.setUserInfo(nameValue, jobValue);
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  return newUserInfo;
+  return new Promise((resolve, reject) => {
+    api
+      .editUserInfo(nameValue, jobValue)
+      .then((res) => {
+        newUserInfo.setUserInfo(nameValue, jobValue);
+        resolve(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(res);
+      });
+  });
 }
 
 function handleNewCardSubmitForm(formInputValues) {
@@ -58,36 +60,39 @@ function handleNewCardSubmitForm(formInputValues) {
     removeBtn: true,
     id: "", //Obtener del servidor
   };
-  api
-    .addNewCard(titleValue, imageValue)
-    .then((res) => {
-      console.log(res);
-      newCardData.id = res._id;
-      const newCardSection = new Section(
-        { items: [newCardData], renderFunction: cardRenderer },
-        ".cards"
-      );
-      newCardSection.renderer();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return new Promise((resolve, reject) => {
+    api
+      .addNewCard(titleValue, imageValue)
+      .then((res) => {
+        newCardData.id = res._id;
+        const newCardSection = new Section(
+          { items: [newCardData], renderFunction: cardRenderer },
+          ".cards"
+        );
+        newCardSection.renderer();
+        resolve(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(res);
+      });
+  });
 }
-
-function handleSubmitLoad() {}
-function submitSent() {}
-function submitError() {}
 
 function handleProfileImgSubmitForm(formInputValues) {
   const imgValue = formInputValues[0];
-  api
-    .editUserAvatar(imgValue)
-    .then((res) => {
-      newUserInfo.setUserImg(imgValue);
-      console.log(res.avatar);
-    })
-    .catch((res) => console.log(res));
-  return newUserInfo;
+  return new Promise((resolve, reject) => {
+    api
+      .editUserAvatar(imgValue)
+      .then((res) => {
+        newUserInfo.setUserImg(imgValue);
+        resolve(res);
+      })
+      .catch((res) => {
+        console.log(res);
+        reject(res);
+      });
+  });
 }
 
 function handleCardDelete(event, id) {
