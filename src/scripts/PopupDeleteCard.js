@@ -10,7 +10,6 @@ export default class PopupDeleteCard extends Popup {
   open(event, id) {
     const deleteBtn = document.querySelector(`.${this.popupSelector}__submit`);
     deleteBtn.addEventListener("click", () => this.closeModal(event, id));
-    console.log(this.popupSelector);
     this.popup.classList.add(`${this.popupSelector}__opened`);
   }
 
